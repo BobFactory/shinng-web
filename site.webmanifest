@@ -1,0 +1,17 @@
+{
+  "name": "Shinng",
+  "short_name": "Shinng",
+  "description": "A simple manual expense tracker and budget tracker for Android.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#5865F2",
+  "theme_color": "#5865F2",
+  "icons": [
+    {
+      "src": "/assets/shinng-app-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

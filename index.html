@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shinng is a simple manual expense tracker for Android. Log expenses quickly, track monthly budgets, review spending insights, and build better money accountability."
+    />
+    <meta
+      name="keywords"
+      content="manual expense tracker, expense tracker app, Android expense tracker, budget tracker, spending tracker, daily expense tracker, personal finance app, money accountability app"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#5865F2" />
+    <meta name="application-name" content="Shinng" />
+    <meta name="apple-mobile-web-app-title" content="Shinng" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shinng" />
+    <meta
+      property="og:title"
+      content="Shinng | Manual Expense Tracker for Android"
+    />
+    <meta property="og:url" content="https://shinng.netlify.app/" />
+    <meta
+      property="og:description"
+      content="Track expenses manually, stay accountable, monitor budgets, and understand where your money goes with Shinng."
+    />
+    <meta
+      property="og:image"
+      content="https://shinng.netlify.app/assets/shinng-app-logo.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Shinng | Manual Expense Tracker for Android"
+    />
+    <meta
+      name="twitter:description"
+      content="A fast manual expense tracker built for daily spending awareness and monthly budget control."
+    />
+    <meta
+      name="twitter:image"
+      content="https://shinng.netlify.app/assets/shinng-app-logo.png"
+    />
+    <title>Shinng | Manual Expense Tracker & Budget Tracker for Android</title>
+    <link rel="canonical" href="https://shinng.netlify.app/" />
+    <link rel="icon" href="/assets/shinng-app-logo.png" />
+    <link rel="apple-touch-icon" href="/assets/shinng-app-logo.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/output.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "#organization",
+            "name": "Shinng",
+            "email": "Bawender.y@gmail.com",
+            "logo": "https://shinng.netlify.app/assets/shinng-app-logo.png"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "#website",
+            "name": "Shinng",
+            "publisher": { "@id": "#organization" },
+            "description": "Shinng is a simple manual expense tracker for Android focused on quick expense logging, budget tracking, and spending awareness."
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "#app",
+            "name": "Shinng",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Android",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "description": "Shinng is a lightweight manual expense tracker for Android that helps users log daily expenses, track budgets, review spending insights, and build accountability without automated bank syncing.",
+            "featureList": [
+              "Fast manual expense logging",
+              "Fuzzy category search",
+              "Monthly budget tracking",
+              "Spending insights and category breakdowns",
+              "Calendar view for day-by-day spending",
+              "Optional cloud backup"
+            ],
+            "publisher": { "@id": "#organization" }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body
+    class="bg-[#5865F2] text-white antialiased"
+    style="font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif"
+  >
+    <main id="app" class="min-h-screen overflow-hidden">
+      <header class="bg-[#5865F2] px-6 py-5 text-white sm:px-8 lg:px-12">
+        <nav
+          class="mx-auto flex max-w-7xl items-center justify-between gap-6"
+          aria-label="Primary navigation"
+        >
+          <a href="/" class="flex items-center gap-3">
+            <img
+              src="/assets/shinng-app-logo.png"
+              alt="Shinng app logo"
+              class="h-11 w-11 rounded-xl"
+            />
+            <span class="text-xl font-black">Shinng</span>
+          </a>
+
+          <div class="hidden items-center gap-5 text-sm font-bold text-white/[0.82] md:flex md:gap-7">
+            <a href="/privacy.html" class="transition hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="/data-deletion.html" class="transition hover:text-white">
+              Data Deletion
+            </a>
+            <a
+              href="mailto:Bawender.y@gmail.com"
+              class="hidden transition hover:text-white sm:inline"
+            >
+              Contact
+            </a>
+          </div>
+
+          <button
+            type="button"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.12] text-white transition hover:bg-white/[0.18] focus:outline-none focus:ring-4 focus:ring-white/25 md:hidden"
+            aria-label="Open navigation menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            data-menu-open
+          >
+            <svg
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2.5"
+            >
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </nav>
+
+        <div
+          class="fixed inset-0 z-50 hidden bg-[#101010]/60 backdrop-blur-sm md:hidden"
+          data-menu-overlay
+        ></div>
+        <aside
+          id="mobile-menu"
+          class="fixed right-0 top-0 z-50 flex h-full w-[min(82vw,340px)] translate-x-full flex-col bg-[#101010] p-6 text-white shadow-[-24px_0_60px_rgba(0,0,0,0.35)] transition-transform duration-300 md:hidden"
+          aria-hidden="true"
+          data-menu-drawer
+        >
+          <div class="flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+              <img
+                src="/assets/shinng-app-logo.png"
+                alt="Shinng app logo"
+                class="h-10 w-10 rounded-xl"
+              />
+              <span class="text-lg font-black">Shinng</span>
+            </a>
+            <button
+              type="button"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-white/15 focus:outline-none focus:ring-4 focus:ring-white/20"
+              aria-label="Close navigation menu"
+              data-menu-close
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2.5"
+              >
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="mt-10 flex flex-col gap-5 text-base font-bold text-zinc-200">
+            <a href="/privacy.html" class="rounded-xl px-2 py-2 transition hover:bg-white/[0.08] hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="/data-deletion.html" class="rounded-xl px-2 py-2 transition hover:bg-white/[0.08] hover:text-white">
+              Data Deletion
+            </a>
+            <a
+              href="mailto:Bawender.y@gmail.com"
+              class="rounded-xl px-2 py-2 transition hover:bg-white/[0.08] hover:text-white"
+            >
+              Contact
+            </a>
+          </div>
+        </aside>
+      </header>
+
+      <section
+        class="relative min-h-[calc(100vh-84px)] bg-[#5865F2] px-6 py-12 sm:px-8 lg:px-12"
+        aria-labelledby="hero-title"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_78%,rgba(16,16,16,0.22),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(255,255,255,0.18),transparent_30%)]"
+        ></div>
+
+        <div
+          class="relative mx-auto grid min-h-[calc(100vh-180px)] max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]"
+        >
+          <div class="max-w-2xl">
+            <div
+              class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/15 px-4 py-2 text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur"
+            >
+              <span class="h-2 w-2 rounded-full bg-[#ABE39E]"></span>
+              Available now on Android
+            </div>
+
+            <h1
+              id="hero-title"
+              class="mt-10 max-w-4xl text-6xl font-black leading-[0.92] tracking-normal text-white sm:text-7xl lg:text-8xl"
+            >
+              Manual expense tracking for daily spending.
+              <span class="block text-[#ABE39E]">Stay accountable.</span>
+            </h1>
+
+            <p class="mt-8 max-w-xl text-lg font-medium leading-8 text-white/[0.82] sm:text-xl">
+              Shinng is a fast manual expense tracker for Android users who
+              want to notice where their money goes. Log daily expenses in
+              seconds, track monthly budgets, review spending patterns, and
+              build better money awareness without noisy automation.
+            </p>
+
+            <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="#"
+                aria-label="Download Shinng for Android"
+                class="inline-flex h-14 items-center justify-center gap-3 rounded-xl bg-[#101010] px-7 text-base font-extrabold text-white shadow-[0_18px_48px_rgba(16,16,16,0.28)] transition hover:bg-[#1f1f1f] focus:outline-none focus:ring-4 focus:ring-white/30"
+              >
+                <svg
+                  class="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M17.55 8.2 19 5.69a.62.62 0 0 0-1.08-.62l-1.47 2.54A8.57 8.57 0 0 0 12 6.42c-1.61 0-3.12.43-4.43 1.19L6.1 5.07a.62.62 0 0 0-1.08.62L6.45 8.2A7.56 7.56 0 0 0 3.5 14.05v.56h17v-.56a7.56 7.56 0 0 0-2.95-5.85ZM8.25 11.7a.85.85 0 1 1 0-1.7.85.85 0 0 1 0 1.7Zm7.5 0a.85.85 0 1 1 0-1.7.85.85 0 0 1 0 1.7ZM4.7 15.75h14.6v3.05c0 .99-.8 1.8-1.8 1.8h-11c-.99 0-1.8-.81-1.8-1.8v-3.05Z"
+                  />
+                </svg>
+                Download Android Expense Tracker
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="relative mt-6 min-h-[580px] sm:min-h-[680px] lg:mt-0 lg:min-h-[720px]"
+            aria-hidden="true"
+          >
+            <div
+              class="absolute left-1/2 top-1/2 h-[430px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#5865F2]/20 blur-3xl"
+            ></div>
+            <img
+              src="/assets/dashboard-dark-portrait.png"
+              alt=""
+              class="absolute left-[2%] top-1/2 z-20 w-[51%] max-w-[360px] -translate-y-1/2 drop-shadow-[0_34px_48px_rgba(0,0,0,0.55)] sm:left-[8%] sm:w-[46%] lg:left-[3%] lg:w-[48%]"
+            />
+            <img
+              src="/assets/stats-dark-portrait.png"
+              alt=""
+              class="absolute right-[1%] top-1/2 z-10 w-[47%] max-w-[330px] -translate-y-[42%] opacity-90 drop-shadow-[0_34px_48px_rgba(0,0,0,0.5)] sm:right-[8%] sm:w-[42%] lg:right-[2%] lg:w-[44%]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-[#1f2329] px-6 py-24 text-white sm:px-8 lg:px-12 lg:py-32"
+        aria-labelledby="feature-fast-entry-title"
+      >
+        <div
+          class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20"
+        >
+          <div class="max-w-xl">
+            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-[#ABE39E]">
+              Fast Expense Logging
+            </p>
+            <h2
+              id="feature-fast-entry-title"
+              class="mt-5 text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl"
+            >
+              Add a transaction before the moment passes.
+            </h2>
+            <p class="mt-6 text-lg font-medium leading-8 text-zinc-300">
+              Shinng is built for quick manual expense entry. Start typing a
+              category and fuzzy search brings the right match forward, so you
+              do not waste time digging through selection dialogs. Add the
+              amount, pick the category, leave a note if needed, and save while
+              the purchase is still fresh in your mind.
+            </p>
+          </div>
+
+          <div class="relative flex min-h-[620px] items-center justify-center lg:min-h-[760px]">
+            <div
+              class="absolute h-[460px] w-[460px] rounded-full bg-[#5865F2]/18 blur-3xl"
+            ></div>
+            <div
+              class="absolute bottom-12 right-8 h-32 w-32 rounded-full bg-[#ABE39E]/12 blur-2xl"
+            ></div>
+            <img
+              src="/assets/add-transaction-light-portrait.png"
+              alt="Shinng add transaction screen showing amount, category, note, date, and save controls."
+              class="relative z-20 w-[56%] max-w-[315px] -translate-x-[4%] drop-shadow-[0_38px_55px_rgba(0,0,0,0.55)] sm:w-[42%] lg:w-[50%]"
+            />
+            <img
+              src="/assets/add-transaction-fuzzy-search-portrait.png"
+              alt="Shinng add transaction screen showing fuzzy category search results for a typed entry."
+              class="relative z-10 w-[38%] max-w-[230px] -translate-x-[8%] translate-y-8 drop-shadow-[0_30px_48px_rgba(0,0,0,0.4)] sm:w-[30%] lg:w-[36%]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-[#eef0f3] px-6 py-24 text-[#101010] sm:px-8 lg:px-12 lg:py-32"
+        aria-labelledby="feature-insights-title"
+      >
+        <div
+          class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20"
+        >
+          <div
+            class="relative order-2 flex min-h-[560px] items-center justify-center lg:order-1 lg:min-h-[680px]"
+          >
+            <div
+              class="absolute h-[470px] w-[470px] rounded-full bg-[#5865F2]/12 blur-3xl"
+            ></div>
+            <div
+              class="absolute left-8 top-20 h-28 w-28 rounded-full bg-[#ABE39E]/30 blur-2xl"
+            ></div>
+            <img
+              src="/assets/stats-light-portrait.png"
+              alt="Shinng statistics screen showing smart insights and income versus expense charts."
+              class="relative z-20 w-[54%] max-w-[300px] translate-x-[8%] drop-shadow-[0_38px_55px_rgba(16,16,16,0.25)] sm:w-[42%] lg:w-[48%]"
+            />
+            <img
+              src="/assets/spending-category-light-portrait.png"
+              alt="Shinng statistics screen showing spending trend and spending by category."
+              class="relative z-10 w-[40%] max-w-[230px] -translate-x-[6%] translate-y-8 drop-shadow-[0_30px_48px_rgba(16,16,16,0.2)] sm:w-[31%] lg:w-[35%]"
+            />
+          </div>
+
+          <div class="order-1 max-w-xl lg:order-2">
+            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-[#2D7A4F]">
+              Spending Insights
+            </p>
+            <h2
+              id="feature-insights-title"
+              class="mt-5 text-4xl font-black leading-tight tracking-normal text-[#101010] sm:text-5xl lg:text-6xl"
+            >
+              See where your money is actually going.
+            </h2>
+            <p class="mt-6 text-lg font-medium leading-8 text-slate-600">
+              Shinng turns your manual expense entries into clear spending
+              breakdowns you can understand at a glance. Review spending by
+              category, compare income and expenses, and spot patterns that are
+              easy to miss when purchases stay scattered across memory, notes,
+              or bank statements.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-[#16191f] px-6 py-24 text-white sm:px-8 lg:px-12 lg:py-32"
+        aria-labelledby="feature-budget-title"
+      >
+        <div
+          class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20"
+        >
+          <div class="max-w-xl">
+            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-[#ABE39E]">
+              Budget Tracking
+            </p>
+            <h2
+              id="feature-budget-title"
+              class="mt-5 text-4xl font-black leading-tight tracking-normal text-white sm:text-5xl lg:text-6xl"
+            >
+              Know what is left before you spend.
+            </h2>
+            <p class="mt-6 text-lg font-medium leading-8 text-zinc-300">
+              Set a monthly budget and keep the remaining balance visible
+              throughout the month. Shinng shows what you have spent, what is
+              left, and the daily amount you can safely use, so every manual
+              expense entry connects back to the bigger picture.
+            </p>
+          </div>
+
+          <div class="relative flex min-h-[560px] items-center justify-center lg:min-h-[680px]">
+            <div
+              class="absolute h-[460px] w-[460px] rounded-full bg-[#5865F2]/16 blur-3xl"
+            ></div>
+            <div
+              class="absolute right-12 top-20 h-28 w-28 rounded-full bg-[#ABE39E]/14 blur-2xl"
+            ></div>
+            <img
+              src="/assets/budget-light-portrait.png"
+              alt="Shinng budget screen showing monthly budget, spent amount, remaining balance, and period."
+              class="relative z-20 w-[56%] max-w-[300px] -translate-x-[2%] drop-shadow-[0_38px_55px_rgba(0,0,0,0.5)] sm:w-[42%] lg:w-[48%]"
+            />
+            <img
+              src="/assets/dashboard-light-portrait.png"
+              alt="Shinng dashboard screen showing daily budget allowance and spending breakdown."
+              class="relative z-10 w-[39%] max-w-[220px] -translate-x-[8%] translate-y-8 drop-shadow-[0_30px_48px_rgba(0,0,0,0.34)] sm:w-[30%] lg:w-[34%]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-[#f3f4f6] px-6 py-24 text-[#101010] sm:px-8 lg:px-12 lg:py-32"
+        aria-labelledby="feature-calendar-title"
+      >
+        <div
+          class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20"
+        >
+          <div
+            class="relative order-2 flex min-h-[560px] items-center justify-center lg:order-1 lg:min-h-[690px]"
+          >
+            <div
+              class="absolute h-[470px] w-[470px] rounded-full bg-[#5865F2]/10 blur-3xl"
+            ></div>
+            <div
+              class="absolute left-16 bottom-20 h-32 w-32 rounded-full bg-[#ABE39E]/28 blur-2xl"
+            ></div>
+            <img
+              src="/assets/calendar-light-portrait.png"
+              alt="Shinng calendar screen showing income, expense, and total spending day by day."
+              class="relative z-20 w-[64%] max-w-[355px] drop-shadow-[0_38px_55px_rgba(16,16,16,0.24)] sm:w-[48%] lg:w-[56%]"
+            />
+          </div>
+
+          <div class="order-1 max-w-xl lg:order-2">
+            <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-[#2D7A4F]">
+              Calendar View
+            </p>
+            <h2
+              id="feature-calendar-title"
+              class="mt-5 text-4xl font-black leading-tight tracking-normal text-[#101010] sm:text-5xl lg:text-6xl"
+            >
+              Review each day without digging through lists.
+            </h2>
+            <p class="mt-6 text-lg font-medium leading-8 text-slate-600">
+              The calendar view gives every day its own spending snapshot.
+              Check income, expenses, and totals across the month, then spot
+              high-spend days, quiet days, and recurring money habits without
+              opening a spreadsheet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="bg-[#5865F2] px-6 py-24 text-center text-white sm:px-8 lg:px-12 lg:py-28"
+        aria-labelledby="cta-title"
+      >
+        <div class="mx-auto max-w-4xl">
+          <p class="text-sm font-extrabold uppercase tracking-[0.22em] text-[#ABE39E]">
+            Ready when you are
+          </p>
+          <h2
+            id="cta-title"
+            class="mt-5 text-4xl font-black leading-tight tracking-normal sm:text-5xl lg:text-6xl"
+          >
+            Start tracking your expenses today.
+          </h2>
+          <p class="mx-auto mt-6 max-w-2xl text-lg font-medium leading-8 text-white/[0.82]">
+            Build the daily habit of noticing where your money goes with a
+            simple Android expense tracker built for accountability.
+          </p>
+          <a
+            href="#"
+            aria-label="Download Shinng on Google Play"
+            class="mt-10 inline-flex rounded-lg transition hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-white/35"
+          >
+            <img
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+              alt="Get it on Google Play"
+              class="h-24 w-auto sm:h-28"
+            />
+          </a>
+        </div>
+      </section>
+
+      <footer class="bg-[#101010] px-6 py-12 text-white sm:px-8 lg:px-12">
+        <div class="mx-auto max-w-7xl">
+          <div class="flex flex-col gap-8 border-b border-white/10 pb-8 md:flex-row md:items-start md:justify-between">
+            <div>
+              <div class="flex items-center gap-3">
+                <img
+                  src="/assets/shinng-app-logo.png"
+                  alt="Shinng app logo"
+                  class="h-12 w-12 rounded-xl"
+                />
+                <p class="text-2xl font-black">Shinng</p>
+              </div>
+              <p class="mt-3 max-w-md text-sm font-medium leading-6 text-zinc-400">
+                A simple manual expense tracker for faster logging, clearer
+                monthly budgets, and better spending awareness.
+              </p>
+            </div>
+
+            <div class="flex flex-col gap-3 text-sm font-bold text-zinc-300 sm:flex-row sm:gap-6">
+              <a href="/privacy.html" class="transition hover:text-white">
+                Privacy Policy
+              </a>
+              <a href="/data-deletion.html" class="transition hover:text-white">
+                Data Deletion
+              </a>
+              <a
+                href="mailto:Bawender.y@gmail.com"
+                class="transition hover:text-white"
+              >
+                Bawender.y@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <p class="pt-8 text-sm font-medium text-zinc-500">
+            © 2026 Shinng. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="/src/app.js"></script>
+  </body>
+</html>
